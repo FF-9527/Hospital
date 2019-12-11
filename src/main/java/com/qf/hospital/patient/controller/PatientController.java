@@ -4,5 +4,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class PatientController {
-
+    public void list() {
+        System.out.println("asdfghjk");
+    }
 }
