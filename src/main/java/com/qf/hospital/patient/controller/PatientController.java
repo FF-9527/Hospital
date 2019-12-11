@@ -6,6 +6,6 @@ import org.springframework.stereotype.Controller;
 public class PatientController {
 
     public void select() {
-        System.out.println("asdfghjkl");
+        System.out.println("爱上对方过后就哭了");
     }
 }
