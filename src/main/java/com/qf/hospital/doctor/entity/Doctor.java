@@ -1,9 +1,21 @@
 package com.qf.hospital.doctor.entity;
 
-/**
- * @program: hospital
- * @author: FF
- * @date: 2019-12-11 19:16
- */
+import lombok.Data;
+
+@Data
 public class Doctor {
+    private Integer doctorId;
+
+    private Integer consultingId;
+
+    private String doctorName;
+
+    private String education;
+
+    private Integer doctorAge;
+
+    private String rank;
+
+    private String resume;
+
 }

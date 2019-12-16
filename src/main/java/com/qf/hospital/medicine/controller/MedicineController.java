@@ -26,5 +26,4 @@ public class MedicineController {
     public R adds() {
         return null;
     }
-
 }

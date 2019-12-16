@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.hospital.doctor.dao.SchedulingTimeMapper">
+  <resultMap id="BaseResultMap" type="com.qf.hospital.doctor.entity.SchedulingTime">
+    <result column="scheduling_id" jdbcType="INTEGER" property="schedulingId" />
+    <result column="day" jdbcType="VARCHAR" property="day" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qf.hospital.doctor.entity.SchedulingTime">
+    insert into scheduling_time (scheduling_id, day, time
+      )
+    values (#{schedulingId,jdbcType=INTEGER}, #{day,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.hospital.doctor.entity.SchedulingTime">
+    insert into scheduling_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schedulingId != null">
+        scheduling_id,
+      </if>
+      <if test="day != null">
+        day,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schedulingId != null">
+        #{schedulingId,jdbcType=INTEGER},
+      </if>
+      <if test="day != null">
+        #{day,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

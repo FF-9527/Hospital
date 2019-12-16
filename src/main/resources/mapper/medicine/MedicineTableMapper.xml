@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.hospital.medicine.dao.MedicineTableMapper">
+  <resultMap id="BaseResultMap" type="com.qf.hospital.medicine.entity.MedicineTable">
+    <result column="case_id" jdbcType="INTEGER" property="caseId" />
+    <result column="medicine_id" jdbcType="INTEGER" property="medicineId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
+    insert into medicine_table (case_id, medicine_id)
+    values (#{caseId,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
+    insert into medicine_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        case_id,
+      </if>
+      <if test="medicineId != null">
+        medicine_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        #{caseId,jdbcType=INTEGER},
+      </if>
+      <if test="medicineId != null">
+        #{medicineId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
