@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/hospital?serverTimezone=UTC
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+#server:
+  #port: 8088
+
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

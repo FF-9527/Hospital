@@ -7,4 +7,5 @@ package com.qf.hospital.medicine.service;
  * @create: 2019-12-15 10:43
  **/
 public interface MedicineService {
+
 }
