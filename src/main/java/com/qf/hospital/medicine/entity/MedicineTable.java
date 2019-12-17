@@ -8,4 +8,6 @@ public class MedicineTable {
 
     private Integer medicineId;
 
+    private Integer orderStatus;
+
 }

@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="com.qf.hospital.medicine.entity.MedicineTable">
     <result column="case_id" jdbcType="INTEGER" property="caseId" />
     <result column="medicine_id" jdbcType="INTEGER" property="medicineId" />
+    <result column="order_status" javaType="INTEGER" property="orderStatus" />
   </resultMap>
   <insert id="insert" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
-    insert into medicine_table (case_id, medicine_id)
-    values (#{caseId,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER})
+    insert into medicine_table (case_id, medicine_id, order_status)
+    values (#{caseId,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
     insert into medicine_table
