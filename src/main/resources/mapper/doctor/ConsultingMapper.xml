@@ -2,14 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.hospital.doctor.dao.ConsultingMapper">
     <resultMap id="BaseResultMap" type="com.qf.hospital.doctor.entity.Consulting">
-        <result column="consulting_id" jdbcType="INTEGER" property="consultingId"/>
+        <id column="consulting_id" jdbcType="INTEGER" property="consultingId"/>
         <result column="consulting_name" jdbcType="VARCHAR" property="consultingName"/>
         <result column="consulting_num" jdbcType="VARCHAR" property="consultingNum"/>
     </resultMap>
 
 
     <select id="queryAllConsulting" resultMap="BaseResultMap">
-        select consulting_id, consulting_name, consulting_num from consulting
+        select
+            consulting_id,
+            consulting_name,
+            consulting_num
+        from
+            consulting;
     </select>
 
+
+    <select id="queryDoctorByTime" resultType="com.qf.hospital.dto.MedicalPermanenceDto">
+        SELECT
+            doctor_name,
+            rank
+        FROM
+            doctor
+            LEFT JOIN consulting ON doctor.consulting_id = consulting.consulting_id
+            LEFT JOIN scheduling ON doctor.doctor_id = scheduling.doctor_id
+            LEFT JOIN scheduling_time ON scheduling.scheduling_id = scheduling_time.scheduling_id
+        WHERE
+            consulting.consulting_id = #{consultingId}
+            AND scheduling_time.`day` = #{week};
+    </select>
 </mapper>
