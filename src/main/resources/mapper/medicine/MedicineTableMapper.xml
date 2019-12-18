@@ -6,27 +6,5 @@
     <result column="medicine_id" jdbcType="INTEGER" property="medicineId" />
     <result column="order_status" javaType="INTEGER" property="orderStatus" />
   </resultMap>
-  <insert id="insert" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
-    insert into medicine_table (case_id, medicine_id, order_status)
-    values (#{caseId,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.medicine.entity.MedicineTable">
-    insert into medicine_table
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="caseId != null">
-        case_id,
-      </if>
-      <if test="medicineId != null">
-        medicine_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="caseId != null">
-        #{caseId,jdbcType=INTEGER},
-      </if>
-      <if test="medicineId != null">
-        #{medicineId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
+
 </mapper>

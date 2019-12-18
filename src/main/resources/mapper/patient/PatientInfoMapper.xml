@@ -9,67 +9,6 @@
     <result column="sex" jdbcType="INTEGER" property="sex" />
     <result column="age" jdbcType="INTEGER" property="age" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qf.hospital.patient.entity.PatientInfo">
-    <result column="address" jdbcType="LONGVARCHAR" property="address" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    address
-  </sql>
-  <insert id="insert" parameterType="com.qf.hospital.patient.entity.PatientInfo">
-    insert into patient_info (patient_id, user_id, id_num, 
-      name, sex, age, address
-      )
-    values (#{patientId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{idNum,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{address,jdbcType=LONGVARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.user.entity.PatientInfo">
-    insert into patient_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="patientId != null">
-        patient_id,
-      </if>
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="idNum != null">
-        id_num,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="sex != null">
-        sex,
-      </if>
-      <if test="age != null">
-        age,
-      </if>
-      <if test="address != null">
-        address,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="patientId != null">
-        #{patientId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="idNum != null">
-        #{idNum,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="age != null">
-        #{age,jdbcType=INTEGER},
-      </if>
-      <if test="address != null">
-        #{address,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+
+
 </mapper>

@@ -9,47 +9,5 @@
       <result column="date" property="date"/>
   </resultMap>
 
-  <insert id="insert" parameterType="com.qf.hospital.doctor.entity.Case">
-    insert into case (case_id, doctor_id, consulting_id, 
-      disease_description, date)
-    values (#{caseId,jdbcType=INTEGER}, #{doctorId,jdbcType=INTEGER}, #{consultingId,jdbcType=INTEGER}, 
-      #{diseaseDescription,jdbcType=LONGVARCHAR}, #{date,jdbcType=LONGVARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.doctor.entity.Case">
-    insert into case
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="caseId != null">
-        case_id,
-      </if>
-      <if test="doctorId != null">
-        doctor_id,
-      </if>
-      <if test="consultingId != null">
-        consulting_id,
-      </if>
-      <if test="diseaseDescription != null">
-        disease_description,
-      </if>
-      <if test="date != null">
-        date,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="caseId != null">
-        #{caseId,jdbcType=INTEGER},
-      </if>
-      <if test="doctorId != null">
-        #{doctorId,jdbcType=INTEGER},
-      </if>
-      <if test="consultingId != null">
-        #{consultingId,jdbcType=INTEGER},
-      </if>
-      <if test="diseaseDescription != null">
-        #{diseaseDescription,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="date != null">
-        #{date,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+
 </mapper>

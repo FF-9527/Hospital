@@ -5,27 +5,5 @@
     <result column="doctor_id" jdbcType="INTEGER" property="doctorId" />
     <result column="scheduling_id" jdbcType="INTEGER" property="schedulingId" />
   </resultMap>
-  <insert id="insert" parameterType="com.qf.hospital.doctor.entity.Scheduling">
-    insert into scheduling (doctor_id, scheduling_id)
-    values (#{doctorId,jdbcType=INTEGER}, #{schedulingId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.doctor.entity.Scheduling">
-    insert into scheduling
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="doctorId != null">
-        doctor_id,
-      </if>
-      <if test="schedulingId != null">
-        scheduling_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="doctorId != null">
-        #{doctorId,jdbcType=INTEGER},
-      </if>
-      <if test="schedulingId != null">
-        #{schedulingId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
+
 </mapper>

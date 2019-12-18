@@ -6,35 +6,5 @@
     <result column="day" jdbcType="VARCHAR" property="day" />
     <result column="time" jdbcType="INTEGER" property="time" />
   </resultMap>
-  <insert id="insert" parameterType="com.qf.hospital.doctor.entity.SchedulingTime">
-    insert into scheduling_time (scheduling_id, day, time
-      )
-    values (#{schedulingId,jdbcType=INTEGER}, #{day,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.doctor.entity.SchedulingTime">
-    insert into scheduling_time
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="schedulingId != null">
-        scheduling_id,
-      </if>
-      <if test="day != null">
-        day,
-      </if>
-      <if test="time != null">
-        time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="schedulingId != null">
-        #{schedulingId,jdbcType=INTEGER},
-      </if>
-      <if test="day != null">
-        #{day,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null">
-        #{time,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
+
 </mapper>
