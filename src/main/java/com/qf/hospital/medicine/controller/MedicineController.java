@@ -1,6 +1,7 @@
 package com.qf.hospital.medicine.controller;
 
 import com.qf.hospital.common.vo.R;
+import com.qf.hospital.medicine.entity.Medicine;
 import com.qf.hospital.medicine.service.MedicineService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,9 +22,13 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
 
-    @ApiOperation(value = "添加药物", notes = "添加药物,按照属性添加，均不能为空（药品ID，药品名称，药品描述，价值）")
+    @ApiOperation(value = "添加药物", notes = "添加药物,按照属性添加，均不能为空(药品名称，药品描述，价值)")
     @PostMapping("/api/hospital/medicine/adds.do")
-    public R adds() {
-        return null;
+    public R adds(Medicine medicine) {
+
+        R adds = medicineService.adds(medicine);
+
+
+        return adds;
     }
 }
