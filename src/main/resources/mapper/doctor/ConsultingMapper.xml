@@ -37,4 +37,8 @@
       </if>
     </trim>
   </insert>
+
+  <select id="queryAllConsulting" resultMap="BaseResultMap">
+        select consulting_id, consulting_name, consulting_num from consulting;
+  </select>
 </mapper>
