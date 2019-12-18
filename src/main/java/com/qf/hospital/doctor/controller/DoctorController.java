@@ -1,6 +1,7 @@
 package com.qf.hospital.doctor.controller;
 
 import com.qf.hospital.common.vo.R;
+import com.qf.hospital.doctor.service.DoctorCaseService;
 import com.qf.hospital.doctor.service.DoctorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,11 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class DoctorController {
 
     @Autowired
-    private DoctorService doctorService;
+    private DoctorCaseService doctorCaseService;
 
-    @ApiOperation(value = "校验药品的添加", notes = "校验药品的添加")
+    /*@ApiOperation(value = "校验药品的添加", notes = "校验药品的添加")
     @GetMapping("/api/doctor/member/add.do")
     public R add() {
-        return doctorService.add();
+        return doctorCaseService.add();
+    }*/
+
+    @ApiOperation(value = "根据患者id查询病例信息", notes = "根据患者id查询病例信息")
+    @GetMapping("/api/doctor/member/query.do")
+    public R query(int id) {
+        return doctorCaseService.queryPatientById(id);
     }
+
+
 }

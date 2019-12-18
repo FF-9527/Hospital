@@ -38,7 +38,7 @@ public class OssUrlServiceImpl implements OssUrlService {
                 ossUrl.setObjname(fn);
                 ossUrl.setEndtime(date);
                 urlDao.insert(ossUrl);
-                return R.Ok(ossUrl);
+                return R.ok(ossUrl);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -47,17 +47,17 @@ public class OssUrlServiceImpl implements OssUrlService {
     }
     @Override
     public R queryAll() {
-        return R.Ok(urlDao.selectAll());
+        return R.ok(urlDao.selectAll());
     }
     @Override
     public R queryOssAll() {
-        return R.Ok(AliOssUtil.list());
+        return R.ok(AliOssUtil.list());
     }
     @Override
     public R del(String objName) {
         if(AliOssUtil.del(objName)){
             urlDao.del(objName);
-            return R.Ok();
+            return R.ok();
         }else {
             return R.fail();
         }

@@ -9,7 +9,7 @@
     insert into scheduling (doctor_id, scheduling_id)
     values (#{doctorId,jdbcType=INTEGER}, #{schedulingId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.hospital.user.entity.Scheduling">
+  <insert id="insertSelective" parameterType="com.qf.hospital.doctor.entity.Scheduling">
     insert into scheduling
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="doctorId != null">

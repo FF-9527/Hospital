@@ -23,10 +23,10 @@ public class R {
         return r;
     }
 
-    public static R Ok(Object data){
+    public static R ok(Object data){
         return setR(ResultCode.OK.getVal(),"OK",data);
     }
-    public static R Ok(){
+    public static R ok(){
         return setR(ResultCode.OK.getVal(),"OK",null);
     }
     public static R fail(){

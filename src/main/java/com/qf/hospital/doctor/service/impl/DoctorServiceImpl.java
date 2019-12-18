@@ -15,6 +15,6 @@ public class DoctorServiceImpl implements DoctorService {
     public R add() {
 
         System.out.println("service方法");
-        return R.Ok();
+        return R.ok();
     }
 }

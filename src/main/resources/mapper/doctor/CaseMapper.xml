@@ -3,8 +3,10 @@
 <mapper namespace="com.qf.hospital.doctor.dao.CaseMapper">
   <resultMap id="BaseResultMap" type="com.qf.hospital.doctor.entity.Case">
     <result column="case_id" jdbcType="INTEGER" property="caseId" />
+      <result column="disease_description" property="diseaseDescription"/>
     <result column="doctor_id" jdbcType="INTEGER" property="doctorId" />
     <result column="consulting_id" jdbcType="INTEGER" property="consultingId" />
+      <result column="date" property="date"/>
   </resultMap>
 
   <insert id="insert" parameterType="com.qf.hospital.doctor.entity.Case">

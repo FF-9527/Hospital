@@ -41,7 +41,7 @@ public class SmsServiceImpl implements SmsService {
         AliSmsUtil.sendSmsCode(phone,code);
         //3、验证码记录到Redis
         jedisUtil.addStr(RedisKeyConfig.SMS_CODE+phone,code+"",RedisKeyConfig.SMSCODE_TIME);
-        return R.Ok();
+        return R.ok();
     }
 
     @Override
@@ -50,7 +50,7 @@ public class SmsServiceImpl implements SmsService {
         if(jedisUtil.checkKey(RedisKeyConfig.SMS_CODE+codeDto.getPhone())){
             //2、校验是否正确
             if(codeDto.getCode()== Integer.parseInt(jedisUtil.getStr(RedisKeyConfig.SMS_CODE+codeDto.getPhone()))){
-                return R.Ok();
+                return R.ok();
             }
         }
         return R.fail("校验失败");
