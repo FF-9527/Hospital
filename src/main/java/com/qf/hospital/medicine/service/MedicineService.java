@@ -12,10 +12,13 @@ import com.qf.hospital.medicine.entity.Medicine;
 public interface MedicineService {
 
     /**
-     * 添加药物,按照属性添加，均不能为空（药品ID，药品名称，药品描述，价值）
+     * 添加药物,按照属性添加，均不能为空（药品名称，药品描述，价值）
      *
      * @return 执行状态
      */
-    R adds(Medicine medicine);
+    R add(Medicine medicine);
 
+    R delete(int[] medicineIds);
+
+    R update(Medicine medicine);
 }

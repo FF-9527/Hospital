@@ -5,6 +5,29 @@
     <result column="medicine_id" jdbcType="INTEGER" property="medicineId" />
     <result column="medicine_name" jdbcType="VARCHAR" property="medicineName" />
     <result column="medicine_price" jdbcType="REAL" property="medicinePrice" />
+    <result column="medicine_info" property="medicineInfo" />
   </resultMap>
+
+  <insert id="insert" parameterType="com.qf.hospital.medicine.entity.Medicine">
+    insert into medicine (medicine_name, medicine_price, medicine_info)
+    values (#{medicineName}, #{medicinePrice}, #{medicineInfo})
+  </insert>
+
+  <delete id="delete" parameterType="java.util.Arrays">
+    delete from medicine
+    where medicine_id
+    in
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+  </delete>
+
+  <update id="update" parameterType="com.qf.hospital.medicine.entity.Medicine">
+    update medicine
+    set medicine_name = #{medicineName},
+        medicine_price = #{medicinePrice},
+        medicine_info = #{medicineInfo}
+    where medicine_id = #{medicineId}
+  </update>
 
 </mapper>

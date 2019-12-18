@@ -26,17 +26,31 @@ public class MedicineServiceImpl implements MedicineService {
     private MedicineTableMapper tableMapper;
 
     /**
-     * 添加药物,按照属性添加，均不能为空（药品ID，药品名称，药品描述，价值）
+     * 添加药物,按照属性添加，均不能为空（药品名称，药品描述，价值）
      *
      * @return 执行状态
      */
     @Override
-    public R adds(Medicine medicine) {
+    public R add(Medicine medicine) {
 
-        //int insert = medicineMapper.insert(medicine);
-
-        int insert = 123456;
+        int insert = medicineMapper.insert(medicine);
 
         return R.ok(insert);
+    }
+
+    @Override
+    public R delete(int[] medicineIds) {
+
+        int delete = medicineMapper.delete(medicineIds);
+
+        return R.ok(delete);
+    }
+
+    @Override
+    public R update(Medicine medicine) {
+
+        int update = medicineMapper.update(medicine);
+
+        return R.ok(update);
     }
 }
