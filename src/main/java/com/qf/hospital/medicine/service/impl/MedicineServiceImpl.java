@@ -1,6 +1,7 @@
 package com.qf.hospital.medicine.service.impl;
 
 import com.qf.hospital.common.vo.R;
+import com.qf.hospital.dto.medicine.SelectMsgDTO;
 import com.qf.hospital.medicine.dao.MedicineMapper;
 import com.qf.hospital.medicine.dao.MedicineTableMapper;
 import com.qf.hospital.medicine.entity.Medicine;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @program: hospital
@@ -52,5 +54,21 @@ public class MedicineServiceImpl implements MedicineService {
         int update = medicineMapper.update(medicine);
 
         return R.ok(update);
+    }
+
+    /**
+     * 查询药物,按照条件查询，(药品ID，药品名称)，返回集合
+     *
+     * @return 返回数据对象
+     */
+    @Override
+    public R select(SelectMsgDTO selectMsgDTO) {
+
+        List<Medicine> select = medicineMapper.select(selectMsgDTO);
+
+        System.out.println(select);
+
+        return R.ok(select);
+
     }
 }

@@ -29,5 +29,21 @@
         medicine_info = #{medicineInfo}
     where medicine_id = #{medicineId}
   </update>
+    
+  <select id="select" resultMap="BaseResultMap">
+    select *
+    from medicine
+    <if test="null != medicineId">
+      where medicine_id
+      in
+        <foreach collection="medicineId" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+    </if>
+    <if test="null != medicineName and null == medicineId">
+      where medicine_name
+      like  CONCAT(CONCAT('%', #{medicineName}), '%')
+    </if>
+  </select>
 
 </mapper>

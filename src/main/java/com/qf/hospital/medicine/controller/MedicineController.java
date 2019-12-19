@@ -26,7 +26,7 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
 
-    @ApiOperation(value = "添加药物", notes = "添加药物,按照属性添加，均不能为空(药品名称，药品描述，价值（xxxxxx.xx）)")
+    @ApiOperation(value = "添加药物", notes = "添加药物,按照属性添加，均不能为空(药品名称(唯一)，药品描述，价值（xxxxxx.xx）)")
     @PostMapping("/api/hospital/medicine/add.do")
     public R add(Medicine medicine) {
 
@@ -57,8 +57,17 @@ public class MedicineController {
 
     }
 
-    public R select(SelectMsgDTO msgDTO) {
-        return null;
+    @ApiOperation(value = "查询药物", notes = "查询药物,按照条件查询，(药品ID，药品名称)，返回集合")
+    @PostMapping("/api/hospital/medicine/select.do")
+    public R select(@RequestBody SelectMsgDTO msgDTO) {
+
+        System.out.println(msgDTO.toString());
+
+        R select = medicineService.select(msgDTO);
+
+        System.out.println(select.toString());
+
+        return select;
     }
 
 }

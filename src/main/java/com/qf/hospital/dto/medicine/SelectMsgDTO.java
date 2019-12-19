@@ -14,7 +14,7 @@ public class SelectMsgDTO {
     /**
      * 药品ID
      */
-    private Integer medicineId;
+    private Integer[] medicineId;
 
     /**
      * 药品名称
