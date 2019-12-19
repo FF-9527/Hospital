@@ -14,6 +14,13 @@
     <result column="就诊时间" property="caseDate" />
   </resultMap>
 
+    <resultMap id="Medicine" type="com.qf.hospital.medicine.entity.Medicine">
+        <result column="m_i" property="medicineId" />
+        <result column="m_in" property="medicineInfo" />
+        <result column="m_n" property="medicineName" />
+        <result column="m_p" property="medicinePrice" />
+    </resultMap>
+
   <select id="select" resultMap="SelectMedicineTableMsg">
     SELECT case_table.case_id '病例id', patient_info.`name` '患者姓名', GROUP_CONCAT(medicine.medicine_name separator '  ') '药品', case_table.date '就诊时间'
     FROM case_table
@@ -29,8 +36,14 @@
     GROUP BY case_table.case_id, patient_info.`name`
   </select>
 
-    <select id="selectMedicine" resultType="com.qf.hospital.medicine.entity.Medicine">
-
+    <select id="selectMedicine" resultMap="Medicine">
+        SELECT medicine.medicine_id m_i, medicine.medicine_name m_n, medicine.medicine_info m_in, medicine.medicine_price m_p
+        FROM case_table
+                 LEFT JOIN medicine_table
+                           ON case_table.case_id = medicine_table.case_id
+                 LEFT JOIN medicine
+                           ON medicine_table.medicine_id = medicine.medicine_id
+        WHERE case_table.case_id = #{caseId}
     </select>
 
 </mapper>

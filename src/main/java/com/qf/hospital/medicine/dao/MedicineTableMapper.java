@@ -10,6 +10,6 @@ public interface MedicineTableMapper {
 
     List<SelectMedicineTableMsg> select ();
 
-    List<Medicine> selectMedicine();
+    List<Medicine> selectMedicine(int caseId);
 
 }

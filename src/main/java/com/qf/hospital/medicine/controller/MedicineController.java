@@ -79,4 +79,16 @@ public class MedicineController {
         return select;
     }
 
+    @ApiOperation(value = "查询药单详情", notes = "查询药单详情,返回集合")
+    @PostMapping("/api/hospital/medicine/selectMedicines.do")
+    public R selectMedicines(int caseId) {
+
+        R r = medicineService.selectMedicine(caseId);
+
+        System.out.println(r);
+
+        return r;
+
+    }
+
 }

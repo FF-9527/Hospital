@@ -4,6 +4,8 @@ import com.qf.hospital.common.vo.R;
 import com.qf.hospital.dto.medicine.SelectMsgDTO;
 import com.qf.hospital.medicine.entity.Medicine;
 
+import java.util.List;
+
 /**
  * @program: hospital
  * @description: 药品管理模块业务逻辑层（Service）
@@ -41,4 +43,6 @@ public interface MedicineService {
     R select(SelectMsgDTO selectMsgDTO);
 
     R selectMedicineMsg();
+
+    R selectMedicine(int caseId);
 }

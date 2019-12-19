@@ -82,4 +82,14 @@ public class MedicineServiceImpl implements MedicineService {
 
         return R.ok(select);
     }
+
+    @Override
+    public R selectMedicine(int caseId) {
+
+        List<Medicine> medicines = tableMapper.selectMedicine(caseId);
+
+        System.out.println(medicines);
+
+        return R.ok(medicines);
+    }
 }
