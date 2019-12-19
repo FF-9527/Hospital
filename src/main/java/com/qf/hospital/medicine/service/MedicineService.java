@@ -39,4 +39,6 @@ public interface MedicineService {
      * @return 返回数据对象
      */
     R select(SelectMsgDTO selectMsgDTO);
+
+    R selectMedicineMsg();
 }

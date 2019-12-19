@@ -7,9 +7,7 @@ import com.qf.hospital.medicine.service.MedicineService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.jar.JarOutputStream;
 
@@ -21,6 +19,7 @@ import java.util.jar.JarOutputStream;
  **/
 @Api(value = "实现药品管理的相关操作", tags = "实现药品管理的相关操作")
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class MedicineController {
 
     @Autowired
@@ -66,6 +65,16 @@ public class MedicineController {
         R select = medicineService.select(msgDTO);
 
         System.out.println(select.toString());
+
+        return select;
+    }
+
+    @ApiOperation(value = "查询药单", notes = "查询药单,返回集合")
+    @PostMapping("/api/hospital/medicine/selectMedicineMsg.do")
+    public R selectMedicineMsg() {
+        R select = medicineService.selectMedicineMsg();
+
+        System.out.println(select);
 
         return select;
     }

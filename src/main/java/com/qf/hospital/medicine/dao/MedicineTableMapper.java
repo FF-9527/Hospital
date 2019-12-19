@@ -1,9 +1,15 @@
 package com.qf.hospital.medicine.dao;
 
-import com.qf.hospital.medicine.entity.MedicineTable;
+import com.qf.hospital.common.vo.SelectMedicineTableMsg;
+import com.qf.hospital.medicine.entity.Medicine;
+
+
+import java.util.List;
 
 public interface MedicineTableMapper {
 
-    //int insert(MedicineTable record);
+    List<SelectMedicineTableMsg> select ();
+
+    List<Medicine> selectMedicine();
 
 }

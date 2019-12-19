@@ -1,6 +1,7 @@
 package com.qf.hospital.medicine.service.impl;
 
 import com.qf.hospital.common.vo.R;
+import com.qf.hospital.common.vo.SelectMedicineTableMsg;
 import com.qf.hospital.dto.medicine.SelectMsgDTO;
 import com.qf.hospital.medicine.dao.MedicineMapper;
 import com.qf.hospital.medicine.dao.MedicineTableMapper;
@@ -70,5 +71,15 @@ public class MedicineServiceImpl implements MedicineService {
 
         return R.ok(select);
 
+    }
+
+    @Override
+    public R selectMedicineMsg() {
+
+        List<SelectMedicineTableMsg> select = tableMapper.select();
+
+        System.out.println(select);
+
+        return R.ok(select);
     }
 }
