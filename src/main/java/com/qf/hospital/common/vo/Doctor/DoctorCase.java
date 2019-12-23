@@ -1,4 +1,4 @@
-package com.qf.hospital.common.vo;
+package com.qf.hospital.common.vo.Doctor;
 
 import lombok.Data;
 
@@ -9,8 +9,8 @@ import lombok.Data;
  */
 @Data
 public class DoctorCase {
-    private int id;
-    private String description;
+    private int case_id;
+    private String disease_description;
     private String name;
     private int age;
     private int sex;

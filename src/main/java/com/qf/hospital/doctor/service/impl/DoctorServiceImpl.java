@@ -1,7 +1,9 @@
 package com.qf.hospital.doctor.service.impl;
 
 import com.qf.hospital.common.vo.R;
+import com.qf.hospital.doctor.dao.DoctorMapper;
 import com.qf.hospital.doctor.service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,10 +13,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DoctorServiceImpl implements DoctorService {
-    @Override
-    public R add() {
 
-        System.out.println("service方法");
-        return R.ok();
+    @Autowired
+    private DoctorMapper doctorMapper;
+    @Override
+    public R queryMedicine(String name) {
+        return R.ok(doctorMapper.queryMedicine(name));
     }
 }

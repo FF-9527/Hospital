@@ -7,5 +7,5 @@ import com.qf.hospital.common.vo.R;
  * @date: 2019/12/17 17:02
  */
 public interface DoctorService {
-    public R add();
+    public R queryMedicine(String name);
 }
